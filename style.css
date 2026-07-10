@@ -1,29 +1,35 @@
-*{
+   *{
     padding: 0px;
     margin: 0px;
     font-family: arial;
+    box-sizing: border-box;
 }
 
+
 body{
-    Background: #0F172A;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2c1810 0%, #3d2b1f 25%, #4a3728 50%, #3d2b1f 75%, #2c1810 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
-    color: #95CCDD;
+    color: #d4c5a9;
+    padding: 20px;
 }
 
 h1{
     width: 100%;
     text-align: center;
     font-size: 50px;
-    color: #D3D4C0;
+    color: #c8a96e;
+    letter-spacing: 3px;
 }
 
+/* =================== SEARCH CARD =================== */
 .card{
     width: 100%;
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,26 +43,38 @@ h1{
     align-items: center;
     gap: 40px;
     width: 500px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
-    background-color: #1E293B;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, #5c4033, #4a3228);
+    border: 1px solid rgba(200, 169, 110, 0.15);
 }
 
 input{
     height: 60px;
     width: 300px;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 5px;
+    background-color: rgba(212, 197, 169, 0.1);
+    border: 1px solid rgba(200, 169, 110, 0.2);
+    border-radius: 8px;
     font-size: 20px;
-    color: white;
-    padding: 10px;
+    color: #d4c5a9;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+input:focus{
+    border-color: rgba(200, 169, 110, 0.5);
+    box-shadow: 0 0 12px rgba(200, 169, 110, 0.15);
+    background-color: rgba(212, 197, 169, 0.15);
+}
+
+input::placeholder{
+    color: rgba(200, 169, 110, 0.4);
 }
 
 .search-btn{
-    height: 60px;
-    width: 60px;
+    height: 64px;
+    width: 64px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -66,25 +84,34 @@ input{
     border: none;
     border-radius: 50%;
     transition-duration: 0.3s;
+    color: #c8a96e;
+}
+
+.search-btn:hover{
+    box-shadow: 0 0 15px rgba(200, 169, 110, 0.2);
+    background-color: rgba(200, 169, 110, 0.2);
 }
 
 .search-btn:active{
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 20px rgba(200, 169, 110, 0.15);
     transition-duration: 0.2s;
+    transform: scale(0.9);
 }
 
 .btn-img{
-    height: 80%;
-    width: 80%;
+    height: 75%;
+    width: 75%;
 }
 
+/* =================== RESULT CARD =================== */
 .result-word{
     width: 500px;
     height: auto;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
-    background-color: #1E293B;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, #5c4033, #4a3228);
+    border: 1px solid rgba(200, 169, 110, 0.15);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,6 +145,7 @@ input{
     align-items: center;
     padding: 2px;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 
@@ -136,19 +164,17 @@ h3{
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
-    color: #8B5E3C;
+    color: #c8a96e;
+    flex-wrap: wrap;
 }
 
 p{
-    color: #95CCDD;
+    color: #d4c5a9;
 }
 
 .sound-text{
-    color: #8B5E3C;
+    color: #c8a96e;
 }
-
-
-
 
 .back-btn{
     width: 100%;
@@ -163,16 +189,16 @@ p{
     width: 80px;
     font-size: 20px;
     cursor: pointer;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(200, 169, 110, 0.08);
+    border: 1px solid rgba(200, 169, 110, 0.25);
     border-radius: 8px;
     transition-duration: 0.3s;
-    color: white;
+    color: #c8a96e;
 }
 
 .backBtn:hover{
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
-    transition-duration: 0.2s;
+    box-shadow: 0 0 15px rgba(200, 169, 110, 0.2);
+    background-color: rgba(200, 169, 110, 0.15);
 }
 
 .backBtn:active{
@@ -183,4 +209,175 @@ p{
 
 .hide{
     display: none;
+}
+
+/* =================== ANIMATIONS =================== */
+
+.anim-fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.anim-fade-out {
+    animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(-20px) scale(0.95); }
+}
+
+.anim-pop-in {
+    animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes popIn {
+    0%  { opacity: 0; transform: scale(0.8); }
+    60% { opacity: 1; transform: scale(1.02); }
+    100%{ opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4); }
+    50%      { box-shadow: 0px 4px 25px rgba(200, 169, 110, 0.15); }
+}
+
+.result-glow {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* =================== RESPONSIVE =================== */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+
+    .search-word, .result-word {
+        width: 450px;
+    }
+
+    input {
+        width: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .card {
+        min-height: 70vh;
+    }
+
+    .search-word {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        min-height: 120px;
+        padding: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    input {
+        width: 100%;
+        max-width: 280px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .search-btn {
+        height: 50px;
+        width: 50px;
+    }
+
+    .result-word {
+        width: 90%;
+        max-width: 400px;
+        padding: 12px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    audio {
+        width: 150px;
+    }
+
+    .backBtn {
+        height: 45px;
+        width: 70px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .search-word {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    input {
+        height: 45px;
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .search-btn {
+        height: 45px;
+        width: 45px;
+    }
+
+    .result-word {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .word-sound {
+        padding: 6px;
+        gap: 6px;
+    }
+
+    .same2 {
+        padding: 6px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    audio {
+        width: 130px;
+    }
+
+    .backBtn {
+        height: 42px;
+        width: 65px;
+        font-size: 16px;
+    }
 }
